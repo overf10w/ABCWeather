@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { City } from '../../city';
+import { Forecast } from '../../forecast';
+
+import { WeatherService } from '../../services/weather.service'
 
 @Component({
   selector: 'app-city',
@@ -8,9 +11,11 @@ import { City } from '../../city';
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  city: City; 
+  city: City;
+  forecast: Forecast;
+  errorMsg: any;
 
-  constructor() {
+  constructor(private weatherService: WeatherService) {
     this.city = new City();
     this.city.name = 'Kiev';
     this.city.lat = 50.450100
@@ -18,6 +23,10 @@ export class CityComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.weatherService.getWeather(this.city.lat, this.city.lon).subscribe(forecast => {
+      this.forecast = forecast;
+      console.log(forecast);
+    }, err => this.errorMsg = <any>err);
   }
-
+  
 }
