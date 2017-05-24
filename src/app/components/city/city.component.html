@@ -1,10 +1,12 @@
-<h2>
-  {{name}}
-</h2>
-<ul class="list-group">
-  <li class="list-group-item">Latitude: {{lat}}</li>
-  <li class="list-group-item">Longitude: {{lon}}</li>
-  <li class="list-group-item">Current temperature, C:</li>
-  <li class="list-group-item">Next hour:</li>
-  <li class="list-group-item">Next week:</li>
-</ul>
+<div *ngIf="city">
+  <h2>{{ city.name }}:</h2>
+  <div><label>city name: </label>{{city.name}}</div>
+  <div><label>city latitude: </label>{{city.lat}}</div>
+  <div><label>city longitude: </label>{{city.lon}}</div>
+</div>
+<div *ngIf="forecast">
+  <div><label>hourly summary: </label>{{forecast.hourlySummary}}</div>
+  <div><label>daily summary: </label>{{forecast.dailySummary}}</div>
+  <div><label>currently summary: </label>{{forecast.currentlySummary}}</div>
+  <div><label>current temperature: </label>{{forecast.currentCelcius}}</div>
+</div>

@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
+import { MainComponent } from './components/main/main.component';
 import { CityComponent } from './components/city/city.component';
 
 import { WeatherService } from './services/weather.service';
@@ -14,7 +14,7 @@ import { WeatherService } from './services/weather.service';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
+    MainComponent,
     CityComponent
   ],
   imports: [
