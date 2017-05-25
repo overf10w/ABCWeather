@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -9,6 +10,16 @@ import { MainComponent } from './components/main/main.component';
 import { CityComponent } from './components/city/city.component';
 
 import { WeatherService } from './services/weather.service';
+import { CityService } from './services/city.service';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  {
+    path: 'main', component: MainComponent, children: [
+      { path: 'city/:id', component: CityComponent }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
@@ -20,9 +31,10 @@ import { WeatherService } from './services/weather.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
