@@ -3,4 +3,6 @@ export class Forecast {
   hourlySummary: string;
   currentlySummary: string;
   currentCelcius: number;
+
+  hourly: any[];
 }

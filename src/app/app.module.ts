@@ -13,10 +13,10 @@ import { WeatherService } from './services/weather.service';
 import { CityService } from './services/city.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'weather', pathMatch: 'full' },
   {
-    path: 'main', component: MainComponent, children: [
-      { path: 'city/:id', component: CityComponent }
+    path: 'weather', component: MainComponent, children: [
+      { path: 'city/:name', component: CityComponent }
     ]
   }
 ]

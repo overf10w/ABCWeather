@@ -26,13 +26,14 @@ export class CityComponent {
   ngOnInit() {
     console.log('He');
     this.sub = this.route.params.subscribe(params => {
-      this.name = params['id'];
+      this.name = params['name'];
       console.log(this.name);
 
       this.city = this.cityService.getCityByName(this.name);
       this.weatherService.getWeather(this.city.lat, this.city.lon)
         .subscribe(forecast => {
           this.forecast = forecast;
+          
         }, err => this.errorMsg = <any>err);
     });
   }
@@ -41,4 +42,16 @@ export class CityComponent {
     this.sub.unsubscribe();
   }
 
+  timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+    return time;
+  }
 }

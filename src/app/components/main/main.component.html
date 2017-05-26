@@ -1,8 +1,5 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>Forecast. For every place on Earth.</h1>
-    <p>ABCWeather lets you find, save, import and compare weather forecasts from all over the world.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
     <h3>List of most popular cities:</h3>
     <ul class="list-inline">
       <li *ngFor="let city of cities" [routerLink]="['city', city.name]" class="list-group-item"><a href="javascript:void(0);">{{city.name}}</a></li>

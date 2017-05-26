@@ -1,15 +1,60 @@
-<div *ngIf="city">
-  <h2>{{ city.name }}:</h2>
-  <div><label>city name: </label>{{city.name}}</div>
-  <div><label>city latitude: </label>{{city.lat}}</div>
-  <div><label>city longitude: </label>{{city.lon}}</div>
+<div *ngIf="city" class="row">
+  <!--<div class="col-md-4">-->
+  <!--<div><label>city name: </label>{{city.name}}</div>-->
+  <!--<div><label>city latitude: </label>{{city.lat}}</div>-->
+  <!--<div><label>city longitude: </label>{{city.lon}}</div>-->
+  <!--</div>-->
+  <div *ngIf="forecast" class="col-md-6">
+    <h2>{{ city.name }}:</h2>
+    <div><label></label>{{forecast.currentCelcius}} &#8451;, {{forecast.currentlySummary}}</div>
+    <div>{{forecast.dailySummary}}</div>
+  </div>
+  <div *ngIf="forecast" class="col-md-6">
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>t, &#8451;</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>{{forecast.hourly[0].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[0].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td><b>{{forecast.hourly[2].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[2].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="info">
+          <td><b>{{forecast.hourly[4].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[4].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="success">
+          <td><b>{{forecast.hourly[6].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[6].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="danger">
+          <td><b>{{forecast.hourly[8].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[8].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="warning">
+          <td><b>{{forecast.hourly[10].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[10].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="active">
+          <td><b>{{forecast.hourly[12].time*1000 | date:'HH:mm'}}</b></td>
+          <td>{{forecast.hourly[12].temperature}}</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div *ngIf="forecast">
-  <div><label>hourly summary: </label>{{forecast.hourlySummary}}</div>
-  <div><label>daily summary: </label>{{forecast.dailySummary}}</div>
-  <div><label>currently summary: </label>{{forecast.currentlySummary}}</div>
-  <div><label>current temperature: </label>{{forecast.currentCelcius}}</div>
-</div>
-
-{{id}}
-
