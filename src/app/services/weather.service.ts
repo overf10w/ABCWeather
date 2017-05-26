@@ -32,6 +32,7 @@ export class WeatherService {
     this.forecast.hourlySummary = res.json().hourly.summary ? res.json().hourly.summary : '';
     this.forecast.currentlySummary = res.json().currently.summary ? res.json().hourly.summary : '';
     this.forecast.currentCelcius = res.json().currently.temperature ? res.json().currently.temperature : '';
+    
     this.forecast.hourly = res.json().hourly.data ? res.json().hourly.data : '';
   
     return this.forecast;

@@ -17,58 +17,58 @@
           <th>t, &#8451;</th>
           <th>Wind Speed</th>
           <th>Wind Bearing</th>
-          <th>Humidity</th>
+          <th>Humidity, &#37;</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><b>{{forecast.hourly[0].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[0].temperature}}</td>
-          <td>{{forecast.hourly[0].windSpeed}}</td>
-          <td>{{forecast.hourly[0].windBearing}}</td>
-          <td>{{forecast.hourly[0].humidity}}</td>
+          <td><b>{{hours[0].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[0].temperature}}</td>
+          <td>{{hours[0].windSpeed}}</td>
+          <td>{{hours[0].windBearing}}</td>
+          <td>{{hours[0].humidity}}</td>
         </tr>
         <tr>
-          <td><b>{{forecast.hourly[1].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[1].temperature}}</td>
-          <td>{{forecast.hourly[1].windSpeed}}</td>
-          <td>{{forecast.hourly[1].windBearing}}</td>
-          <td>{{forecast.hourly[1].humidity}}</td>
+          <td><b>{{hours[1].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[1].temperature}}</td>
+          <td>{{hours[1].windSpeed}}</td>
+          <td>{{hours[1].windBearing}}</td>
+          <td>{{hours[1].humidity}}</td>
         </tr>
-        <tr class="info">
-          <td><b>{{forecast.hourly[2].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[2].temperature}}</td>
-          <td>{{forecast.hourly[2].windSpeed}}</td>
-          <td>{{forecast.hourly[2].windBearing}}</td>
-          <td>{{forecast.hourly[2].humidity}}</td>
+        <tr>
+          <td><b>{{hours[2].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[2].temperature}}</td>
+          <td>{{hours[2].windSpeed}}</td>
+          <td>{{hours[2].windBearing}}</td>
+          <td>{{hours[2].humidity}}</td>
         </tr>
-        <tr class="success">
-          <td><b>{{forecast.hourly[3].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[3].temperature}}</td>
-          <td>{{forecast.hourly[3].windSpeed}}</td>
-          <td>{{forecast.hourly[3].windBearing}}</td>
-          <td>{{forecast.hourly[3].humidity}}</td>
+        <tr>
+          <td><b>{{hours[3].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[3].temperature}}</td>
+          <td>{{hours[3].windSpeed}}</td>
+          <td>{{hours[3].windBearing}}</td>
+          <td>{{hours[3].humidity}}</td>
         </tr>
-        <tr class="danger">
-          <td><b>{{forecast.hourly[4].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[4].temperature}}</td>
-          <td>{{forecast.hourly[4].windSpeed}}</td>
-          <td>{{forecast.hourly[4].windBearing}}</td>
-          <td>{{forecast.hourly[4].humidity}}</td>
+        <tr>
+          <td><b>{{hours[4].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[4].temperature}}</td>
+          <td>{{hours[4].windSpeed}}</td>
+          <td>{{hours[4].windBearing}}</td>
+          <td>{{hours[4].humidity}}</td>
         </tr>
-        <tr class="warning">
-          <td><b>{{forecast.hourly[5].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[5].temperature}}</td>
-          <td>{{forecast.hourly[5].windSpeed}}</td>
-          <td>{{forecast.hourly[5].windBearing}}</td>
-          <td>{{forecast.hourly[5].humidity}}</td>
+        <tr>
+          <td><b>{{hours[5].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[5].temperature}}</td>
+          <td>{{hours[5].windSpeed}}</td>
+          <td>{{hours[5].windBearing}}</td>
+          <td>{{hours[5].humidity}}</td>
         </tr>
-        <tr class="active">
-          <td><b>{{forecast.hourly[6].time*1000 | date:'HH:mm'}}</b></td>
-          <td>{{forecast.hourly[6].temperature}}</td>
-          <td>{{forecast.hourly[6].windSpeed}}</td>
-          <td>{{forecast.hourly[6].windBearing}}</td>
-          <td>{{forecast.hourly[6].humidity}}</td>
+        <tr>
+          <td><b>{{hours[6].time | date:'HH:mm'}}</b></td>
+          <td>{{hours[6].temperature}}</td>
+          <td>{{hours[6].windSpeed}}</td>
+          <td>{{hours[6].windBearing}}</td>
+          <td>{{hours[6].humidity}}</td>
         </tr>
       </tbody>
     </table>
