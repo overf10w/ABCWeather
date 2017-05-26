@@ -9,10 +9,8 @@ export class CityService {
   constructor() { }
 
   getCityByName(name) {
-    console.log('kek' + name);
     for (var i = 0; i < this.cities.length; i++) {
       if (this.cities[i].name == name) {
-        console.log('found!')
         return this.cities[i];
       }
     }

@@ -25,16 +25,15 @@ export class WeatherService {
   }
 
   private extractData(res: Response): Forecast {
-    // console.log(res.json());
+    console.log(res.json());
     this.forecast = new Forecast();
-
+    
     this.forecast.dailySummary = res.json().daily.summary ? res.json().daily.summary : '';
     this.forecast.hourlySummary = res.json().hourly.summary ? res.json().hourly.summary : '';
     this.forecast.currentlySummary = res.json().currently.summary ? res.json().hourly.summary : '';
     this.forecast.currentCelcius = res.json().currently.temperature ? res.json().currently.temperature : '';
-
     this.forecast.hourly = res.json().hourly.data ? res.json().hourly.data : '';
-    console.log(typeof this.forecast.hourly);
+  
     return this.forecast;
   }
 
