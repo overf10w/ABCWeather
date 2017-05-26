@@ -5,8 +5,8 @@
   <!--<div><label>city longitude: </label>{{city.lon}}</div>-->
   <!--</div>-->
   <div *ngIf="forecast" class="col-md-5">
-    <h2>{{ city.name }}:</h2>
-    <div><label></label>{{forecast.currentCelcius}} &#8451;, {{forecast.currentlySummary}}</div>
+    <h2>{{ city.name }}: {{forecast.currentCelcius}} &#8451;</h2>
+    <div><b>{{forecast.currentlySummary}}</b></div>
     <div>{{forecast.dailySummary}}</div>
   </div>
   <div *ngIf="forecast" class="col-md-7">
