@@ -9,33 +9,57 @@ import { Forecast } from '../forecast';
 
 @Injectable()
 export class WeatherService {
-  
   url: string;
-  forecast: Forecast;
 
   constructor(private http: Http) { }
 
   getWeather(latitude: number, longitude: number): Observable<Forecast> {
     this.url = 'https://api.darksky.net/forecast/3bfcfdfa160eee3357357a6c3c400e6d/' +
       latitude.toString() + ',' + longitude.toString() + '?units=ca';
-
     return this.http.get(this.url)
-      .map(this.extractData)
+      .map((res) => this.extractData(res))  // TODO pay attention to THIS!
       .catch(this.handleError);
   }
 
   private extractData(res: Response): Forecast {
-    console.log(res.json());
-    this.forecast = new Forecast();
-    
-    this.forecast.dailySummary = res.json().daily.summary ? res.json().daily.summary : '';
-    this.forecast.hourlySummary = res.json().hourly.summary ? res.json().hourly.summary : '';
-    this.forecast.currentlySummary = res.json().currently.summary ? res.json().hourly.summary : '';
-    this.forecast.currentCelcius = res.json().currently.temperature ? res.json().currently.temperature : '';
-    
-    this.forecast.hourly = res.json().hourly.data ? res.json().hourly.data : '';
-  
-    return this.forecast;
+    let forecast = new Forecast();
+    forecast.currently = res.json().currently;
+    forecast.hourly = this.makeHours(res.json().hourly.data);
+    return forecast;
+  }
+
+  makeHours(hourly) {
+    let hours = new Array;
+    for (let i = 0; i < hourly.length; i++) {
+      let hour = hourly[i];
+      hour.time *= 1000;
+      hour.windBearing = this.degToCompass(hour.windBearing);
+      hours.push(hour);
+    }
+    return hours;
+  }
+
+  degToCompass(num) {
+    let val = Math.floor((num / 22.5) + 0.5);
+    let arr = [
+      "North",
+      "North-Northeast",
+      "Northeast",
+      "East-Northeast",
+      "East",
+      "East-Southeast",
+      "Southeast",
+      "South-Southeast",
+      "South",
+      "South-Southwest",
+      "Southwest",
+      "West-Southwest",
+      "West",
+      "West-Northwest",
+      "Northwest",
+      "North-Northwest"
+    ];
+    return arr[(val % 16)];
   }
 
   private handleError(error: Response | any) {

@@ -1,15 +1,10 @@
 <div *ngIf="city" class="row">
-  <!--<div class="col-md-4">-->
-  <!--<div><label>city name: </label>{{city.name}}</div>-->
-  <!--<div><label>city latitude: </label>{{city.lat}}</div>-->
-  <!--<div><label>city longitude: </label>{{city.lon}}</div>-->
-  <!--</div>-->
-  <div *ngIf="forecast" class="col-md-5">
-    <h2>{{ city.name }}: {{forecast.currentCelcius}} &#8451;</h2>
-    <div><b>{{forecast.currentlySummary}}</b></div>
-    <div>{{forecast.dailySummary}}</div>
+  <div *ngIf="currently" class="col-md-5">
+    <h2>{{ city.name }}: {{currently.temperature}} &#8451;</h2>
+    <div><b>{{currently.summary}}</b></div>
+    <div>{{currently.dailySummary}}</div>
   </div>
-  <div *ngIf="forecast" class="col-md-7">
+  <div *ngIf="hours" class="col-md-7">
     <table class="table table-striped table-hover ">
       <thead>
         <tr>
