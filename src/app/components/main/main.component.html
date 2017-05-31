@@ -4,6 +4,8 @@
     <ul class="list-inline">
       <li *ngFor="let city of cities" [routerLink]="['city', city.name]" class="list-group-item"><a href="javascript:void(0);">{{city.name}}</a></li>
     </ul>
+    <input [(ngModel)]="cityNameQuery" placeholder="name" />
+    <a [routerLink]="['city', cityNameQuery]">Searh, YOBA</a>
     <router-outlet></router-outlet>
   </div>
 </div>

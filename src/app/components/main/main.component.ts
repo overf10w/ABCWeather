@@ -15,6 +15,8 @@ import { CITIES } from '../../CITIES'
 export class MainComponent implements OnInit {
   cities: City[] = CITIES;
 
+  cityNameQuery: string;
+
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() { }

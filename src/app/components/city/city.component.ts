@@ -27,13 +27,20 @@ export class CityComponent {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.cityName = params['name'];
-      this.city = this.cityService.getCityByName(this.cityName);
+      // this.city = this.cityService.getCityByName(this.cityName);
+      this.cityService.getCityFromGMapsByName(this.cityName)
+        .subscribe(city => {
+          this.city = city;
+        })
 
-      this.weatherService.getWeather(this.city.lat, this.city.lon)
-        .subscribe(forecast => {
-          this.currentWeather = forecast.currently;
-          this.hours = forecast.hourly;
-        }, err => this.errorMsg = <any>err);
+      // setTimeout --> so this.city won't be undefined
+      setTimeout(() => {
+        this.weatherService.getWeather(this.city.lat, this.city.lon)
+          .subscribe(forecast => {
+            this.currentWeather = forecast.currently;
+            this.hours = forecast.hourly;
+          }, err => this.errorMsg = <any>err);
+      }, 300);
     });
   }
 
