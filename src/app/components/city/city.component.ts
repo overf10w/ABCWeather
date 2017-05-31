@@ -14,7 +14,7 @@ import { CityService } from '../../services/city.service'
 })
 export class CityComponent {
   city: City;
-  currently: any;
+  currentWeather: any;
   hours: any[];
   cityName: string;
   sub: any;
@@ -31,7 +31,7 @@ export class CityComponent {
 
       this.weatherService.getWeather(this.city.lat, this.city.lon)
         .subscribe(forecast => {
-          this.currently = forecast.currently;
+          this.currentWeather = forecast.currently;
           this.hours = forecast.hourly;
         }, err => this.errorMsg = <any>err);
     });

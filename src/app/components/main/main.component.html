@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="container">
-    <h3>List of most popular cities:</h3>
+    <h3>Popular cities:</h3>
     <ul class="list-inline">
       <li *ngFor="let city of cities" [routerLink]="['city', city.name]" class="list-group-item"><a href="javascript:void(0);">{{city.name}}</a></li>
     </ul>
