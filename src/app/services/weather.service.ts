@@ -28,7 +28,7 @@ export class WeatherService {
     return forecast;
   }
 
-  makeHours(hourly) {
+  private makeHours(hourly) {
     let hours = new Array;
     for (let i = 0; i < hourly.length; i++) {
       let hour = hourly[i];
@@ -39,7 +39,7 @@ export class WeatherService {
     return hours;
   }
 
-  degToCompass(num) {
+  private degToCompass(num) {
     let val = Math.floor((num / 22.5) + 0.5);
     let arr = [
       "North",

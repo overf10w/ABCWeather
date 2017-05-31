@@ -14,24 +14,8 @@ import { CITIES } from '../../CITIES'
 })
 export class MainComponent implements OnInit {
   cities: City[] = CITIES;
-  selectedCity: City;
-  forecast: Forecast;
-  errorMsg: any;
 
   constructor(private weatherService: WeatherService) { }
-
-  onSelectCity(city) {
-    this.selectedCity = city;
-    this.selectedCity.name = city.name;
-    this.selectedCity.lat = city.lat;
-    this.selectedCity.lon = city.lon;
-
-    this.weatherService.getWeather(this.selectedCity.lat, this.selectedCity.lon)
-      .subscribe(forecast => {
-        this.forecast = forecast;
-        console.log(forecast);
-      }, err => this.errorMsg = <any>err);
-  }
 
   ngOnInit() { }
 }
